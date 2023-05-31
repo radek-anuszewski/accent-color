@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accent color and color scheme</title>
+  <style>
+    :root {
+      --accent-color: #d40000;
+      accent-color: var(--accent-color);
+    }
+  </style>
+  <script type="module">
+    const root = document.querySelector("html")
+    document.querySelector("#colorScheme").addEventListener("change", e => {
+      root.style.colorScheme = e.target.value;
+    });
+
+    document.querySelector("#accentColor").addEventListener("change", e => {
+      root.setAttribute("style", `--accent-color: ${e.target.value}`);
+    })
+  </script>
+</head>
+<body>
+<main>
+  <h1>Accent color and color scheme</h1>
+  <article>
+    <a href="https://github.com/radek-anuszewski/accent-color" target="_blank">Check code on Github</a>
+    <br><br>
+    <hr>
+    <h2>Change colors</h2>
+    <label for="colorScheme">Color scheme</label>
+    <select id="colorScheme">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+    <br><br>
+    <label for="accentColor">Accent color</label>
+    <input type="color" id="accentColor" value="#d40000">
+    <section>
+      <article>
+        <hr>
+        <h2>Styled</h2>
+        <label for="checkbox">Checkbox <input type="checkbox" id="checkbox" checked></label><br><br>
+        <fieldset>
+          <legend>Radios</legend>
+          <label for="firstRadio">First radio <input name="radio" type="radio" id="firstRadio" checked></label><br>
+          <label for="secondRadio">Second radio <input name="radio" type="radio" id="secondRadio"></label><br>
+          <label for="thirdRadio">Third radio <input name="radio" type="radio" id="thirdRadio"></label><br>
+        </fieldset>
+        <br><br>
+        Progress element
+        <progress value="30" max="100"></progress>
+        <br><br>
+        Range input <input type="range" min="0" max="100" value="30">
+        <br><br>
+      </article>
+      <article>
+        <hr>
+        <h2>Not styled</h2>
+        <label for="text">Text</label><input type="text" value="Test" id="text"><br><br>
+        <label for="number">Number</label><input type="number" value="3" id="number"><br><br>
+        <select>
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </select>
+        <br><br>
+        Meter element <meter value="30" max="100"></meter>
+    </section>
+  </article>
+</main>
+</body>
+</html>
